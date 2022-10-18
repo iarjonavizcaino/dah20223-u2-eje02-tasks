@@ -1,25 +1,23 @@
 <ion-header [translucent]="true">
     <ion-toolbar>
         <ion-title>
-            Galería de imágenes
+            Lista de tareas
         </ion-title>
     </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-    <div id="container">
-        <ion-slides pager="true">
-            <ion-slide *ngFor="let photo of photos; index i">
-                <ion-card>
-                    <img [src]="photo.url" />
-                    <ion-card-header>
-                        <ion-card-title>{{photo.name}}</ion-card-title>
-                    </ion-card-header>
-                    <ion-card-content>
-                        {{photo.description}}
-                    </ion-card-content>
-                </ion-card>
-            </ion-slide>
-        </ion-slides>
-    </div>
+    <ion-row>
+        <ion-col size-lg="11" size-xs="6">
+            <ion-item>
+                <ion-label position="floating">Nueva tarea</ion-label>
+                <ion-input [(ngModel)]="task"></ion-input>
+            </ion-item>
+        </ion-col>
+        <ion-col size-lg="1" size-xs="6">
+            <ion-button expand="block" *ngIf="task">
+                <ion-icon name="add"></ion-icon>
+            </ion-button>
+        </ion-col>
+    </ion-row>
 </ion-content>

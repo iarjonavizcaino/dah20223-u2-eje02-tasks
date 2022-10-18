@@ -1,3 +1,4 @@
+import { TasksService } from './../services/tasks.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -7,26 +8,12 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  public photos = [];
+  public tasks: string[];
+  public task: string;
 
-  constructor() {
-    this.photos = [
-      {
-        name: "Foto 1",
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean sit.",
-        url: "https://picsum.photos/id/237/200/300"
-      }, 
-      {
-        name: "Foto 2",
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean sit.",
-        url: "https://picsum.photos/id/238/200/300"
-      }, 
-      {
-        name: "Foto 3",
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean sit.",
-        url: "https://picsum.photos/id/239/200/300"
-      }
-    ];
+  constructor(private taskService:TasksService) {
+   this.tasks = this.taskService.getTasks();
+   this.task = "algo";
   }
 
 }
