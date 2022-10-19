@@ -16,4 +16,16 @@ export class HomePage {
    this.task = "algo";
   }
 
+  public addTask() {
+    this.taskService.addTask(this.task);
+    this.tasks=this.taskService.getTasks();
+    console.log(this.tasks);
+    this.task="";
+  }
+
+  public removeTask(pos:number) {
+    this.taskService.removeTask(pos);
+    this.tasks = this.taskService.getTasks();
+  }
+
 }
